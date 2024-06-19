@@ -1,11 +1,17 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradiente de fundo com cores neutras */
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
 .login-container {
@@ -13,13 +19,14 @@ body {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 320px;
+    width: 90%; /* Ajustado para telas menores */
+    max-width: 400px; /* Limita a largura máxima */
     text-align: center;
     transition: transform 0.3s ease-in-out;
 }
 
 .login-container:hover {
-    transform: scale(1.05); /* Pequena animação ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .login-container h2 {
@@ -31,10 +38,6 @@ body {
 .input-group {
     margin-bottom: 20px;
     text-align: left;
-}
-
-.input-group:last-child {
-    margin-bottom: 30px; /* Espaçamento extra antes do botão */
 }
 
 .input-group label {
@@ -55,14 +58,14 @@ body {
 }
 
 .input-group input:focus {
-    border-color: #007BFF; /* Cor de borda ao focar */
+    border-color: #007BFF;
     outline: none;
 }
 
 button {
     width: 100%;
     padding: 12px 15px;
-    background: #555; /* Cor neutra no botão */
+    background: #555;
     border: none;
     border-radius: 5px;
     color: white;
@@ -72,15 +75,15 @@ button {
 }
 
 button:hover {
-    background: #333; /* Cor mais escura ao passar o mouse */
+    background: #333;
 }
 
 button:active {
-    transform: scale(0.98); /* Efeito de clique */
+    transform: scale(0.98);
 }
 
-@media (max-width: 400px) {
+@media (min-width: 768px) {
     .login-container {
-        width: 90%; /* Ajuste para telas menores */
+        width: 320px;
     }
 }

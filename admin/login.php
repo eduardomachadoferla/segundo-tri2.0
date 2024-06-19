@@ -1,6 +1,6 @@
 <?php
 include('includes/config.inc.php');
-$title = 'Área administrativa seja bem vindo!';
+$title = 'Área administrativa - Bem-vindo!';
 $files = ['logim.css'];
 include('includes/header.php');
 ?>
