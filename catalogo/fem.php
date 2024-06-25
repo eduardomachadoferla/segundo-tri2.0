@@ -143,11 +143,11 @@
     </nav>
 
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Masculino</h1>
+        <h1 class="text-center mb-4">feminino</h1>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="../img/download (3).jpg" class="card-img-top" alt="Produto 1">
+                    <img src="../img/download (8).jpg" class="card-img-top" alt="Produto 1">
                     <div class="card-body">
                         <h5 class="card-title">Produto 1</h5>
                         <p class="card-text">Descrição do produto 1.</p>
@@ -156,7 +156,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="../img/download (4).jpg" class="card-img-top" alt="Produto 2">
+                    <img src="../img/download(9).jpg" class="card-img-top" alt="Produto 2">
                     <div class="card-body">
                         <h5 class="card-title">Produto 2</h5>
                         <p class="card-text">Descrição do produto 2.</p>
@@ -165,7 +165,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="../img/download (5).jpg" class="card-img-top" alt="Produto 3">
+                    <img src="../img/download(10).jpg" class="card-img-top" alt="Produto 3">
                     <div class="card-body">
                         <h5 class="card-title">Produto 3</h5>
                         <p class="card-text">Descrição do produto 3.</p>
