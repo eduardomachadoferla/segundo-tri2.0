@@ -1,0 +1,105 @@
+/* Estilizações gerais */
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cartão de perfil */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Detalhes do perfil */
+h3 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    font-size: 1rem;
+    padding: 15px 20px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-group-item strong {
+    display: inline-block;
+    width: 150px;
+}
+
+/* Botões */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #565e64;
+    border-color: #565e64;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Formulário de edição */
+#editForm {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#editForm .form-label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#editForm .form-control {
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
