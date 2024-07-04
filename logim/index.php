@@ -194,22 +194,22 @@
         <div class="form-container sign-up-container">
 
             <!-- cadastrar -->
-            <form action="../perfis/perfil.php">
+            <form action="cadastrar.php" method="post">
                 <h1>Cadastre-se</h1>
-                <input type="text" placeholder="Nome" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Senha" />
-                 <button>Cadastrar</button> 
+                <input id="nome" name="nome" type="text" placeholder="Nome" />
+                <input id="email" name="email" type="email" placeholder="Email" />
+                <input id="senha" name="senha" type="password" placeholder="Senha" />
+                 <button type="submit">Cadastrar</button> 
             </form>
         </div>
         
         <!-- logim -->
         <div class="form-container sign-in-container">
-            <form action="perfis/">
+            <form action="login.php" method="post">
                 <h1>Login</h1>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Senha" />
-                <button >Entrar</button>
+                <input id="email" name="email" type="email" placeholder="Email" />
+                <input id="password" name="password" type="password" placeholder="Senha" />
+                <button type="submit" >Entrar</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -220,7 +220,7 @@
                     <button class="ghost" id="signIn">Login</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Olá, Amigo!</h1>
+                    <h1>Olá, meu joven!</h1>
                     <p>Insira seus dados e comece sua jornada conosco</p>
                     <button class="ghost" id="signUp">Cadastrar</button>
                 </div>
