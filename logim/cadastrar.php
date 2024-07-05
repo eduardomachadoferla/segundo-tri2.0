@@ -2,7 +2,7 @@
 include('../admin/includes/config.inc.php');
 include('../admin/includes/conexao.php');
 
-$password = password_hash("test", PASSWORD_BCRYPT, ["cost" => 12]);
+$password = password_hash($_POST['senha'], PASSWORD_BCRYPT, ["cost" => 12]);
 
 $sql = "INSERT INTO usuario (Nome, Email, Senha) VALUES (:nome, :email, :password)";
 

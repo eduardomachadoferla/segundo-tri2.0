@@ -1,3 +1,5 @@
+eduferla@gmail.com
+123123
 CREATE DATABASE IF NOT EXISTS vendas-minhas;
 
 -- Tabela Usuário

@@ -1,12 +1,59 @@
 <?php
+
+// include('../admin/includes/config.inc.php');
+// include('../admin/includes/conexao.php');
+
+// $email = $_POST["email"];
+// $password = $_POST["password"];
+
+// $sql = "SELECT * FROM usuario WHERE Email = :email";
+// $select_data = $pdo->prepare($sql);
+// $select_data->bindParam(':email', $email);
+// $select_data->execute();
+// $user = $select_data->fetch(PDO::FETCH_ASSOC);
+
+// if ($user) {
+//     // Supondo que $password seja a senha fornecida pelo usuário
+//     if (isset($user['senha_hash']) && password_verify($password, $user['senha_hash'])) {
+//         // Senha correta, realizar as operações necessárias
+//         var_dump($user); // Apenas para debug, remova isso em produção
+//     } else {
+//         // Senha incorreta, tratar o erro ou redirecionar para página de erro
+//         echo "Credenciais inválidas."; // Mensagem genérica para segurança
+//     }
+// } else {
+//     // Usuário não encontrado, tratar o erro ou redirecionar para página de erro
+//     echo "Credenciais inválidas."; // Mensagem genérica para segurança
+// }
+
+
 include('../admin/includes/config.inc.php');
 include('../admin/includes/conexao.php');
 
-$usuario = $_POST["email"];
-$usuario = $_POST["password"];
+$email = $_POST["email"];
+$password = $_POST["password"];
 
 $sql = "SELECT * FROM usuario WHERE Email = :email";
 $select_data = $pdo->prepare($sql);
-$select_data->bindParam(':email', $usuario);
+$select_data->bindParam(':email', $email);
+$select_data->execute();
 $user = $select_data->fetch(PDO::FETCH_ASSOC);
-var_dump($user);
+
+if ($user) {
+    // senha fornecida pelo usuário
+    if (password_verify($password, $user['Senha'])) {
+        // Senha correta, realizar as operações necessárias
+        var_dump($user); // Apenas para debug, remova isso em produção
+    } else {
+        // Senha incorreta, tratar o erro ou redirecionar para página de erro
+        echo "Credenciais inválidas."; // Mensagem genérica para segurança
+    }
+} else {
+    // Usuário não encontrado, tratar o erro ou redirecionar para página de erro
+    echo "Credenciais inválidas."; // Mensagem genérica para segurança
+}
+
+?>
+
+
+
