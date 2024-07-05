@@ -42,6 +42,10 @@ $user = $select_data->fetch(PDO::FETCH_ASSOC);
 if ($user) {
     // senha fornecida pelo usuário
     if (password_verify($password, $user['Senha'])) {
+        $_SESSION['name'] = $user["Nome"];
+        $_SESSION['email'] = $user["Email"];
+        header("Location: ". BASE_URL . "index.php");
+
         // Senha correta, realizar as operações necessárias
         var_dump($user); // Apenas para debug, remova isso em produção
     } else {

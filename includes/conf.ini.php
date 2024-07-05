@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 define('BASE_URL', 'http://localhost/provafinal/');
 define('BASE_ADMIN', BASE_URL . 'admin/');
