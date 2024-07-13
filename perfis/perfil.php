@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -150,7 +149,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../logim/index.php">
+                        <a class="nav-link" href="../logout.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-person" viewBox="0 0 16 16">
                                 <path
@@ -159,6 +158,7 @@
                             Deslogar
                         </a>
                     </li>
+
                     <!-- Outros itens de navegação -->
                 </ul>
             </div>

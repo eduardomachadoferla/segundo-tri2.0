@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login e Cadastro</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -205,6 +206,7 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="form-container sign-up-container">
             <form action="cadastrar.php" method="post">
@@ -226,13 +228,13 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Bem-vindo de volta!</h1>
+                    <h1>Bem-vindo de volta a Modern Muse!</h1>
                     <p>Para continuar conectado, por favor faça o login</p>
                     <button class="ghost" id="signIn">Login</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Olá, meu joven!</h1>
-                    <p>Insira seus dados e comece sua jornada conosco</p>
+                    <h1>Bem vindo a Modern Muse!</h1>
+                    <p>Insira seus dados e comece sua jornada conosco.</p>
                     <button class="ghost" id="signUp">Cadastrar</button>
                 </div>
             </div>
