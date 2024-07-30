@@ -6,7 +6,7 @@ include('includes/header.php');
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeInDown">
     <div class="container">
-        <a class="navbar-brand" href="#">Modern Muse</a>
+        <a class="navbar-brand" href="../img/logo.png">Modern Muse</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -371,7 +371,7 @@ include('includes/header.php');
 </div>
 
 <!-- star modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -414,7 +414,110 @@ include('includes/header.php');
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
+    </div> -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section class="cart-section py-5 bg-light animate__animated animate__fadeInUp">
+                    <div class="container">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="cart-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Imagem</th>
+                                        <th scope="col">Produto</th>
+                                        <th scope="col">Quantidade</th>
+                                        <th scope="col">Preço</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cart-items"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="4" class="text-end">Total Geral</th>
+                                        <th colspan="2" id="cart-total">R$ 0,00</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-success" onclick="finalizePurchase()">Finalizar Compra</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
+</div>
+
+<script>
+   
+    let cartItems = [];
+
+    function addToCart(name, image, price) {
+        const existingItem = cartItems.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+            existingItem.total = existingItem.quantity * existingItem.price;
+        } else {
+            const newItem = {
+                image: image,
+                name: name,
+                quantity: 1,
+                price: price,
+                total: price
+            };
+            cartItems.push(newItem);
+        }
+        renderCartItems();
+    }
+
+    function renderCartItems() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+
+        cartItems.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto;"></td>
+                <td>${item.name}</td>
+                <td>${item.quantity}</td>
+                <td>R$ ${item.price.toFixed(2)}</td>
+                <td>R$ ${item.total.toFixed(2)}</td>
+                <td><button class="btn btn-danger" onclick="removeItemFromCart(${index})">Remover</button></td>
+            `;
+            cartItemsContainer.appendChild(row);
+        });
+
+        updateCartTotal();
+    }
+
+    function updateCartTotal() {
+        const total = cartItems.reduce((sum, item) => sum + item.total, 0);
+        document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2)}`;
+    }
+
+    function removeItemFromCart(index) {
+        cartItems.splice(index, 1);
+        renderCartItems();
+    }
+
+    function finalizePurchase() {
+        alert('Compra finalizada com sucesso!');
+    }
+
+    renderCartItems();
+</script>
+</script>
 </div>
 <!-- end modal -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -6,7 +6,7 @@ session_start();
 // Encerra a sessão (logout)
 session_destroy();
 
-// Redireciona para a página de login, por exemplo
+// Redireciona para a página de login, 
 header('Location: ./logim/index.php');
 exit;
 ?>
