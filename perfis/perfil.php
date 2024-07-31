@@ -74,6 +74,27 @@
             background-color: #6c757d;
             color: #fff;
         }
+
+        .dark-mode {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .dark-mode .profile-card,
+        .dark-mode .profile-details,
+        .dark-mode .edit-form {
+            background-color: #495057;
+            color: #fff;
+        }
+
+        .dark-mode .navbar,
+        .dark-mode .btn-secondary {
+            background-color: #6c757d !important;
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -113,6 +134,7 @@
                     </li>
                     <!-- Outros itens de navegação -->
                 </ul>
+                <button class="btn btn-outline-light ms-3" id="theme-toggle">Alternar Tema</button>
             </div>
         </div>
     </nav>
@@ -129,16 +151,18 @@
                 </div>
             </div>
             <div class="col-md-8">
+                <div id="feedback-message" class="alert" style="display:none;"></div>
                 <div class="profile-details">
                     <h3>Detalhes do Perfil</h3>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" id="profileEmail">Email: usuario@email.com</li>
                         <li class="list-group-item" id="profilePhone">Telefone: (00) 00000-0000</li>
                         <li class="list-group-item" id="profileAddress">Endereço: Rua Exemplo, 123</li>
+                        <li class="list-group-item" id="profileBio">Bio: Uma breve descrição sobre o usuário.</li>
                     </ul>
-                    <button class="btn btn-primary mt-3" id="edit-button">Editar</button>
+                    <button id="edit-button" class="btn btn-primary mt-3">Editar Perfil</button>
                 </div>
-                <div class="edit-form">
+                <div class="edit-form" style="display:none;">
                     <form id="profile-form">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -153,12 +177,26 @@
                             <input type="text" class="form-control" id="address" name="address" required>
                         </div>
                         <div class="mb-3">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="bio" name="bio" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
                             <label for="profileImage" class="form-label">Imagem de Perfil</label>
-                            <input type="file" class="form-control" id="profileImage" name="profileImage">
+                            <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*">
+                            <img id="imagePreview" src="#" alt="Pré-visualização da Imagem" style="display:none;width:100%;height:auto;margin-top:10px;">
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar</button>
                         <button type="button" class="btn btn-secondary" id="cancel-button">Cancelar</button>
                     </form>
+                </div>
+                <div class="purchase-history mt-5">
+                    <h3>Histórico de Compras</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Compra #1 - Data: 01/01/2023 - Valor: R$ 100,00</li>
+                        <li class="list-group-item">Compra #2 - Data: 15/02/2023 - Valor: R$ 200,00</li>
+                        <li class="list-group-item">Compra #3 - Data: 30/03/2023 - Valor: R$ 150,00</li>
+                        <!-- Adicionar mais itens conforme necessário -->
+                    </ul>
                 </div>
             </div>
         </div>
@@ -167,26 +205,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const editButton = document.getElementById('edit-button');
-            const editForm = document.querySelector('.edit-form');
-            const profileDetails = document.querySelector('.profile-details');
-            const cancelButton = document.getElementById('cancel-button');
+            const profileForm = document.getElementById('profile-form');
+            const feedbackMessage = document.getElementById('feedback-message');
+            const imagePreview = document.getElementById('imagePreview');
             const profileImageInput = document.getElementById('profileImage');
             const profileImagePreview = document.getElementById('profileImagePreview');
-            const profileName = document.getElementById('profileName');
-            const profileEmail = document.getElementById('profileEmail');
-            const profilePhone = document.getElementById('profilePhone');
-            const profileAddress = document.getElementById('profileAddress');
-            const profileForm = document.getElementById('profile-form');
 
-            editButton.addEventListener('click', function() {
-                profileDetails.style.display = 'none';
-                editForm.style.display = 'block';
-            });
+            const editButton = document.getElementById('edit-button');
+            const cancelButton = document.getElementById('cancel-button');
+            const profileDetails = document.querySelector('.profile-details');
+            const editForm = document.querySelector('.edit-form');
 
-            cancelButton.addEventListener('click', function() {
-                editForm.style.display = 'none';
-                profileDetails.style.display = 'block';
+            const themeToggle = document.getElementById('theme-toggle');
+            let isDarkMode = false;
+
+            themeToggle.addEventListener('click', function() {
+                isDarkMode = !isDarkMode;
+                document.body.classList.toggle('dark-mode', isDarkMode);
             });
 
             profileImageInput.addEventListener('change', function() {
@@ -195,6 +230,8 @@
                     const reader = new FileReader();
                     reader.onload = function(e) {
                         profileImagePreview.src = e.target.result;
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
                     };
                     reader.readAsDataURL(file);
                 }
@@ -206,28 +243,33 @@
                 const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
                 const address = document.getElementById('address').value;
+                const bio = document.getElementById('bio').value;
 
-                profileEmail.textContent = `Email: ${email}`;
-                profilePhone.textContent = `Telefone: ${phone}`;
-                profileAddress.textContent = `Endereço: ${address}`;
+                profileDetails.querySelector('#profileEmail').textContent = `Email: ${email}`;
+                profileDetails.querySelector('#profilePhone').textContent = `Telefone: ${phone}`;
+                profileDetails.querySelector('#profileAddress').textContent = `Endereço: ${address}`;
+                profileDetails.querySelector('#profileBio').textContent = `Bio: ${bio}`;
+
+                feedbackMessage.textContent = 'Perfil atualizado com sucesso!';
+                feedbackMessage.classList.add('alert-success');
+                feedbackMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    feedbackMessage.style.display = 'none';
+                }, 3000);
 
                 editForm.style.display = 'none';
                 profileDetails.style.display = 'block';
             });
 
-            const asyncImages = document.querySelectorAll('.async-img');
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        observer.unobserve(img);
-                    }
-                });
+            editButton.addEventListener('click', function() {
+                editForm.style.display = 'block';
+                profileDetails.style.display = 'none';
             });
 
-            asyncImages.forEach(img => {
-                observer.observe(img);
+            cancelButton.addEventListener('click', function() {
+                editForm.style.display = 'none';
+                profileDetails.style.display = 'block';
             });
         });
     </script>
