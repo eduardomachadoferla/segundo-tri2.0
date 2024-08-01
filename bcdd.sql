@@ -1,4 +1,4 @@
-;
+eduferla@gmail.com
 123123
 CREATE DATABASE IF NOT EXISTS vendasminhas;
 
@@ -14,7 +14,7 @@ CREATE TABLE Usuario (
 -- Tabela Produto
 CREATE TABLE Produto (
     ProductID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(100) NOT NULL, 
+    Nome VARCHAR(100) NOT NULL,
     Descricao TEXT,
     Preco DECIMAL(10, 2) NOT NULL,
     Estoque INT NOT NULL DEFAULT 0
@@ -78,4 +78,18 @@ CREATE TABLE HistoricoPrecos (
     PrecoAntigo DECIMAL(10, 2),
     NovoPreco DECIMAL(10, 2),
     FOREIGN KEY (ProductID) REFERENCES Produto(ProductID)
+);
+
+-- adicionar produtos
+CREATE TABLE administrators (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    image VARCHAR(255)
 );

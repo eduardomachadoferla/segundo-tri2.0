@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-define('BASE_URL', 'http://localhost/provafinal/');
+define('BASE_URL', 'http://localhost/segundo-tri2.0-master/');
 define('BASE_ADMIN', BASE_URL . 'admin/');
  
  

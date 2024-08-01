@@ -50,12 +50,13 @@ if ($user) {
         var_dump($user); // Apenas para debug, remova isso em produção
     } else {
         // Senha incorreta, tratar o erro ou redirecionar para página de erro
-        echo "Credenciais inválidas."; // Mensagem genérica para segurança
+        echo '<div class="error-message">Senha incorreta. Por favor, tente novamente.</div>';
     }
 } else {
     // Usuário não encontrado, tratar o erro ou redirecionar para página de erro
-    echo "Credenciais inválidas."; // Mensagem genérica para segurança
+    echo "usuario nao encontrado"; // Mensagem genérica para segurança
 }
+
 
 ?>
 

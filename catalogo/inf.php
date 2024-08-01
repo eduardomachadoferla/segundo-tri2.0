@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/index.css">
-    <title>MASCULINO</title>
+    <title>IFAMTIL</title>
 </head>
 
 <body>
@@ -16,7 +20,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeInDown">
         <div class="container">
-            <a class="navbar-brand" href="#">Vendas Online</a>
+            <a class="navbar-brand" href="#">Modern Muse</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -134,13 +138,23 @@
                         </li>
                         <!-- Adicione um link para a página de perfil -->
                         <li class="nav-item">
-
-                            <a class="nav-link" href="../perfis/perfil.php">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-                                </svg>
-                                Perfil</a>
-                        </li>
+                                <?php 
+                                if(!isset($_SESSION['name'])){ ?>
+                                    <a class="nav-link" href="../logim/index.php">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                        </svg>
+                                        Logar
+                                    </a>
+                                <?php }else{ ?>
+                                    <a class="nav-link" href="../perfis/perfil.php">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                        </svg>
+                                        Perfil
+                                    </a>
+                                <?php } ?>
+                            </li>
 
                 </ul>
                 
@@ -160,6 +174,11 @@
                     <div class="card-body">
                         <h5 class="card-title">Produto 1</h5>
                         <p class="card-text">Descrição do produto 1.</p>
+                        <button class="btn btn-primary mt-2" onclick="addToCart('Jaqueta de Couro', 300)">Comprar</button>
+                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -169,6 +188,11 @@
                     <div class="card-body">
                         <h5 class="card-title">Produto 2</h5>
                         <p class="card-text">Descrição do produto 2.</p>
+                        <button class="btn btn-primary mt-2" onclick="addToCart('Jaqueta de Couro', 300)">Comprar</button>
+                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -178,6 +202,11 @@
                     <div class="card-body">
                         <h5 class="card-title">Produto 3</h5>
                         <p class="card-text">Descrição do produto 3.</p>
+                        <button class="btn btn-primary mt-2" onclick="addToCart('Jaqueta de Couro', 300)">Comprar</button>
+                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>

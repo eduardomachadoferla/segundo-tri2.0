@@ -6,7 +6,7 @@ include('includes/header.php');
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeInDown">
     <div class="container">
-        <a class="navbar-brand" href="#">Vendas Online</a>
+        <a class="navbar-brand" href="../img/logo.png">Modern Muse</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -165,7 +165,7 @@ include('includes/header.php');
                                         Logar
                                     </a>
                                 <?php }else{ ?>
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="./perfis/perfil.php">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                                         </svg>
@@ -173,8 +173,8 @@ include('includes/header.php');
                                     </a>
                                 <?php } ?>
                             </li>
-
                         </ul>
+                        
         </div>
     </div>
 </nav>
@@ -220,21 +220,27 @@ include('includes/header.php');
                         <p class="fw-bold mt-auto">R$ 120,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Conjunto Moletom', 120)">Comprar</button>
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Conjunto Moletom')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
                         <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Conjunto Moletom')">Avaliar</button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
             <!-- Produto 2 -->
             <div class="col-6 col-md-4">
                 <div class="card mx-auto animate__animated animate__fadeInUp h-100">
-                    <img src="<?php echo BASE_URL; ?>/img/download (3).jpg" class="card-img-top" alt="Moletom Branco" onclick="openModal(this)">
+                    <img src="<?php echo BASE_URL; ?>./img/download (3).jpg" class="card-img-top" alt="Moletom Branco" onclick="openModal(this)">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Moletom</h5>
                         <p class="card-text">Moletom branco</p>
                         <p class="fw-bold mt-auto">R$ 90,00</p>
-                        <button class="btn btn-primary mt-2" onclick="addToCart('Moletom Branco', 90)">Comprar</button>
+
+                        <button   class="btn btn-primary mt-2" onclick="addToCart('Moletom Branco', 90)">Comprar</button>
+                        
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
                         <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -247,8 +253,10 @@ include('includes/header.php');
                         <p class="card-text">Moletom bege para dias de frio</p>
                         <p class="fw-bold mt1-auto">R$ 100,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Moletom Bege', 100)">Comprar</button>
-                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Bege')">Comentários</button>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Bege')">Avaliar</button>
+                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -261,8 +269,10 @@ include('includes/header.php');
                         <p class="card-text">Camisa polo masculina</p>
                         <p class="fw-bold mt-auto">R$ 70,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Camisa Polo', 70)">Comprar</button>
-                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Camisa Polo')">Comentários</button>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Camisa Polo')">Avaliar</button>
+                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -275,8 +285,10 @@ include('includes/header.php');
                         <p class="card-text">Calça jeans azul escura</p>
                         <p class="fw-bold mt-auto">R$ 150,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Calça Jeans', 150)">Comprar</button>
-                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Calça Jeans')">Comentários</button>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Calça Jeans')">Avaliar</button>
+                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -289,8 +301,10 @@ include('includes/header.php');
                         <p class="card-text">Jaqueta de couro preta</p>
                         <p class="fw-bold mt-auto">R$ 300,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Jaqueta de Couro', 300)">Comprar</button>
-                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Jaqueta de Couro')">Comentários</button>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Jaqueta de Couro')">Avaliar</button>
+                        <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
+                        <?php if(isset($_SESSION['name'])){ ?>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>
@@ -369,7 +383,7 @@ include('includes/header.php');
 </div>
 
 <!-- star modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -412,7 +426,112 @@ include('includes/header.php');
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
+    </div> -->
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section class="cart-section py-5 bg-light animate__animated animate__fadeInUp">
+                    <div class="container">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="cart-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Imagem</th>
+                                        <th scope="col">Produto</th>
+                                        <th scope="col">Quantidade</th>
+                                        <th scope="col">Preço</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cart-items"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="4" class="text-end">Total Geral</th>
+                                        <th colspan="2" id="cart-total">R$ 0,00</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="text-center">
+                            
+                            <button class="btn btn-success" onclick="finalizePurchase()">Finalizar Compra</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
+</div>
+
+<script>
+   
+    let cartItems = [];
+
+    function addToCart(name, image, price) {
+        const existingItem = cartItems.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+            existingItem.total = existingItem.quantity * existingItem.price;
+        } else {
+            const newItem = {
+                image: image,
+                name: name,
+                quantity: 1,
+                price: price,
+                total: price
+            };
+            cartItems.push(newItem);
+        }
+        renderCartItems();
+    }
+
+    function renderCartItems() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+
+        cartItems.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto;"></td>
+                <td>${item.name}</td>
+                <td>${item.quantity}</td>
+                <td>R$ ${item.price.toFixed(2)}</td>
+                <td>R$ ${item.total.toFixed(2)}</td>
+                <td><button class="btn btn-danger" onclick="removeItemFromCart(${index})">Remover</button></td>
+            `;
+            cartItemsContainer.appendChild(row);
+        });
+
+        updateCartTotal();
+    }
+
+    function updateCartTotal() {
+        const total = cartItems.reduce((sum, item) => sum + item.total, 0);
+        document.getElementById('cart-total').textContent = `R$ ${total.toFixed(2)}`;
+    }
+
+    function removeItemFromCart(index) {
+        cartItems.splice(index, 1);
+        renderCartItems();
+    }
+
+    function finalizePurchase() {
+        alert('Compra finalizada com sucesso!');
+    }
+
+    renderCartItems();
+</script>
+</script>
 </div>
 <!-- end modal -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css.css">
     <title><?php echo isset($title) ? $title : 'Area 51'; ?></title>
     
     <?php foreach ($files as $file) {
