@@ -1,4 +1,4 @@
-eduferla@gmail.com
+;
 123123
 CREATE DATABASE IF NOT EXISTS vendasminhas;
 
@@ -14,7 +14,7 @@ CREATE TABLE Usuario (
 -- Tabela Produto
 CREATE TABLE Produto (
     ProductID INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(100) NOT NULL,
+    Nome VARCHAR(100) NOT NULL, 
     Descricao TEXT,
     Preco DECIMAL(10, 2) NOT NULL,
     Estoque INT NOT NULL DEFAULT 0
