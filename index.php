@@ -6,7 +6,9 @@ include('includes/header.php');
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeInDown">
     <div class="container">
-        <a class="navbar-brand" href="../img/logo.png">Modern Muse</a>
+        <a class="navbar-brand" href="../img/logo.png">
+            <img class="logo-small" src="./img/logo.png" alt="Logo da Modern Muse">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,6 +24,14 @@ include('includes/header.php');
                 </li>
 
                 <style>
+                    .logo-small {
+                        width: 50px;
+                        /* Defina a largura desejada */
+                        height: auto;
+                        /* Mantém a proporção da imagem */
+                    }
+
+
                     /* Estilização básica do dropdown */
                     .dropdown {
                         position: relative;
@@ -88,7 +98,7 @@ include('includes/header.php');
                     }
                 </style>
 
-                </head> 
+                </head>
 
                 <body>
                     <div class="dropdown">
@@ -156,15 +166,15 @@ include('includes/header.php');
                             </li>
                             <!-- Adicione um link para a página de perfil -->
                             <li class="nav-item">
-                                <?php 
-                                if(!isset($_SESSION['name'])){ ?>
+                                <?php
+                                if (!isset($_SESSION['name'])) { ?>
                                     <a class="nav-link" href="logim/index.php">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                                         </svg>
                                         Logar
                                     </a>
-                                <?php }else{ ?>
+                                <?php } else { ?>
                                     <a class="nav-link" href="./perfis/perfil.php">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
@@ -174,7 +184,7 @@ include('includes/header.php');
                                 <?php } ?>
                             </li>
                         </ul>
-                        
+
         </div>
     </div>
 </nav>
@@ -220,8 +230,8 @@ include('includes/header.php');
                         <p class="fw-bold mt-auto">R$ 120,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Conjunto Moletom', 120)">Comprar</button>
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Conjunto Moletom')">Comentários</button>
-                        <?php if(isset($_SESSION['name'])){ ?>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Conjunto Moletom')">Avaliar</button>
+                        <?php if (isset($_SESSION['name'])) { ?>
+                            <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Conjunto Moletom')">Avaliar</button>
                         <?php } ?>
                     </div>
                 </div>
@@ -235,12 +245,12 @@ include('includes/header.php');
                         <p class="card-text">Moletom branco</p>
                         <p class="fw-bold mt-auto">R$ 90,00</p>
 
-                        <button   class="btn btn-primary mt-2" onclick="addToCart('Moletom Branco', 90)">Comprar</button>
-                        
+                        <button class="btn btn-primary mt-2" onclick="addToCart('Moletom Branco', 90)">Comprar</button>
+
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
-                        <?php if(isset($_SESSION['name'])){ ?>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
-                    <?php } ?>
+                        <?php if (isset($_SESSION['name'])) { ?>
+                            <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -254,9 +264,9 @@ include('includes/header.php');
                         <p class="fw-bold mt1-auto">R$ 100,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Moletom Bege', 100)">Comprar</button>
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
-                        <?php if(isset($_SESSION['name'])){ ?>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
-                    <?php } ?>
+                        <?php if (isset($_SESSION['name'])) { ?>
+                            <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -270,9 +280,9 @@ include('includes/header.php');
                         <p class="fw-bold mt-auto">R$ 70,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Camisa Polo', 70)">Comprar</button>
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
-                        <?php if(isset($_SESSION['name'])){ ?>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
-                    <?php } ?>
+                        <?php if (isset($_SESSION['name'])) { ?>
+                            <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -286,9 +296,9 @@ include('includes/header.php');
                         <p class="fw-bold mt-auto">R$ 150,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Calça Jeans', 150)">Comprar</button>
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
-                        <?php if(isset($_SESSION['name'])){ ?>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
-                    <?php } ?>
+                        <?php if (isset($_SESSION['name'])) { ?>
+                            <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -302,14 +312,14 @@ include('includes/header.php');
                         <p class="fw-bold mt-auto">R$ 300,00</p>
                         <button class="btn btn-primary mt-2" onclick="addToCart('Jaqueta de Couro', 300)">Comprar</button>
                         <button class="btn btn-sm btn-outline-secondary mt-2" onclick="openCommentsModal('Moletom Branco')">Comentários</button>
-                        <?php if(isset($_SESSION['name'])){ ?>
-                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
-                    <?php } ?>
+                        <?php if (isset($_SESSION['name'])) { ?>
+                            <button class="btn btn-sm btn-outline-primary mt-2" onclick="openRatingAndCommentModal('Moletom Branco')">Avaliar</button>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>
 
@@ -427,8 +437,8 @@ include('includes/header.php');
             </div>
         </div>
     </div> -->
-    
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -459,7 +469,7 @@ include('includes/header.php');
                             </table>
                         </div>
                         <div class="text-center">
-                            
+
                             <button class="btn btn-success" onclick="finalizePurchase()">Finalizar Compra</button>
                         </div>
                     </div>
@@ -474,7 +484,6 @@ include('includes/header.php');
 </div>
 
 <script>
-   
     let cartItems = [];
 
     function addToCart(name, image, price) {

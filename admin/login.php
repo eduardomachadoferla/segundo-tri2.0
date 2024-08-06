@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('includes/config.inc.php');
 
 // Verificar se o formulário foi submetido
