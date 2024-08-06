@@ -44,21 +44,19 @@ if ($user) {
     if (password_verify($password, $user['Senha'])) {
         $_SESSION['name'] = $user["Nome"];
         $_SESSION['email'] = $user["Email"];
-        header("Location: ". BASE_URL . "index.php");
+        header("Location: " . BASE_URL . "index.php");
+        exit;
 
         // Senha correta, realizar as operações necessárias
         var_dump($user); // Apenas para debug, remova isso em produção
     } else {
         // Senha incorreta, tratar o erro ou redirecionar para página de erro
-        echo '<div class="error-message">Senha incorreta. Por favor, tente novamente.</div>';
+        $_SESSION["error"] = '<div class="error-message">Senha incorreta. Por favor, tente novamente.</div>';
+        header("Location: " . BASE_URL . "logim/index.php");
+        exit;
     }
 } else {
     // Usuário não encontrado, tratar o erro ou redirecionar para página de erro
-    echo "usuario nao encontrado"; // Mensagem genérica para segurança
+    $_SESSION["error"] = '<div class="error-message">usuario nao encontrado.</div>';
+    header("Location: " . BASE_URL . "logim/index.php");
 }
-
-
-?>
-
-
-

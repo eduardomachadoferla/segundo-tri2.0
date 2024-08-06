@@ -1,5 +1,9 @@
+<?php
+include('../admin/includes/config.inc.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +12,7 @@
         * {
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Arial', sans-serif;
             background: #f6f5f7;
@@ -18,6 +23,7 @@
             margin: 0;
             flex-direction: column;
         }
+
         .container {
             background: #fff;
             border-radius: 10px;
@@ -27,42 +33,53 @@
             max-width: 100%;
             min-height: 480px;
         }
+
         .form-container {
             position: absolute;
             top: 0;
             height: 100%;
             transition: all 0.6s ease-in-out;
         }
+
         .sign-in-container {
             left: 0;
             width: 50%;
             z-index: 2;
         }
+
         .sign-up-container {
             left: 0;
             width: 50%;
             opacity: 0;
             z-index: 1;
         }
+
         .container.right-panel-active .sign-in-container {
             transform: translateX(100%);
         }
+
         .container.right-panel-active .sign-up-container {
             transform: translateX(100%);
             opacity: 1;
             z-index: 5;
             animation: show 0.6s;
         }
+
         @keyframes show {
-            0%, 49.99% {
+
+            0%,
+            49.99% {
                 opacity: 0;
                 z-index: 1;
             }
-            50%, 100% {
+
+            50%,
+            100% {
                 opacity: 1;
                 z-index: 5;
             }
         }
+
         .overlay-container {
             position: absolute;
             top: 0;
@@ -73,11 +90,14 @@
             transition: transform 0.6s ease-in-out;
             z-index: 100;
         }
+
         .container.right-panel-active .overlay-container {
             transform: translateX(-100%);
         }
+
         .overlay {
-            background: #6a0dad; /* Alterando para roxo */
+            background: #6a0dad;
+            /* Alterando para roxo */
             color: #fff;
             position: relative;
             left: -100%;
@@ -86,9 +106,11 @@
             transform: translateX(0);
             transition: transform 0.6s ease-in-out;
         }
+
         .container.right-panel-active .overlay {
             transform: translateX(50%);
         }
+
         .overlay-panel {
             position: absolute;
             display: flex;
@@ -103,19 +125,24 @@
             transform: translateX(0);
             transition: transform 0.6s ease-in-out;
         }
+
         .overlay-left {
             transform: translateX(-20%);
         }
+
         .container.right-panel-active .overlay-left {
             transform: translateX(0);
         }
+
         .overlay-right {
             right: 0;
             transform: translateX(0);
         }
+
         .container.right-panel-active .overlay-right {
             transform: translateX(20%);
         }
+
         form {
             background: #fff;
             display: flex;
@@ -126,11 +153,14 @@
             height: 100%;
             text-align: center;
         }
+
         form h1 {
             font-weight: bold;
             margin: 0;
-            color: #6a0dad; /* Alterando para roxo */
+            color: #6a0dad;
+            /* Alterando para roxo */
         }
+
         form input {
             background: #eee;
             border: none;
@@ -138,10 +168,13 @@
             margin: 8px 0;
             width: 100%;
         }
+
         form button {
             border-radius: 20px;
-            border: 1px solid #6a0dad; /* Alterando para roxo */
-            background-color: #6a0dad; /* Alterando para roxo */
+            border: 1px solid #6a0dad;
+            /* Alterando para roxo */
+            background-color: #6a0dad;
+            /* Alterando para roxo */
             color: #fff;
             font-size: 12px;
             font-weight: bold;
@@ -151,18 +184,22 @@
             transition: transform 80ms ease-in;
             cursor: pointer;
         }
+
         form button:active {
             transform: scale(0.95);
         }
+
         form button:focus {
             outline: none;
         }
+
         button.ghost {
             background-color: transparent;
             border-color: #fff;
             cursor: pointer;
             color: #fff;
         }
+
         .main-button {
             margin-top: 20px;
             border: 1px solid #6a0dad;
@@ -176,6 +213,7 @@
             border-radius: 20px;
             text-decoration: none;
         }
+
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -189,6 +227,7 @@
             z-index: 999;
             display: none;
         }
+
         .loading-wave {
             width: 300px;
             height: 100px;
@@ -196,6 +235,7 @@
             justify-content: center;
             align-items: flex-end;
         }
+
         .loading-bar {
             width: 20px;
             height: 10px;
@@ -204,28 +244,45 @@
             border-radius: 5px;
             animation: loading-wave-animation 1s ease-in-out infinite;
         }
+
         .loading-bar:nth-child(2) {
             animation-delay: 0.1s;
         }
+
         .loading-bar:nth-child(3) {
             animation-delay: 0.2s;
         }
+
         .loading-bar:nth-child(4) {
             animation-delay: 0.3s;
         }
+
+        .error-message{
+            border: solid 1px red;
+            background-color: rgba(255, 0, 0, 0.2);
+            color: red;
+            padding: 0.7em;
+            border-radius: 15px;
+            margin: 1em 0 1em 0;
+            width: 100%;
+        }
+
         @keyframes loading-wave-animation {
             0% {
                 height: 10px;
             }
+
             50% {
                 height: 50px;
             }
+
             100% {
                 height: 10px;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -241,6 +298,12 @@
         <div class="form-container sign-in-container">
             <form id="loginForm" action="login.php" method="post">
                 <h1>Login</h1>
+                <?php
+                if (isset($_SESSION['error'])) {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+                ?>
                 <input id="email" name="email" type="email" placeholder="Email" />
                 <input id="password" name="password" type="password" placeholder="Senha" />
                 <button type="button" id="loginButton">Entrar</button>
@@ -296,4 +359,5 @@
         });
     </script>
 </body>
+
 </html>

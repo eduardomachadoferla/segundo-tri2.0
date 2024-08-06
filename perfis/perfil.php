@@ -1,3 +1,12 @@
+<?php
+include('../admin/includes/config.inc.php');
+
+if(!isset($_SESSION['name'])){
+    header("Location: " . BASE_URL . "logim/index.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -252,11 +261,11 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-3">
-                        <a class="nav-link" href="../profile.php">
+                        <a class="nav-link" href="../index.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                 <path d="M3.5 1.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0zM8 9a4.5 4.5 0 0 0-4.5 4.5V15h9v-1.5A4.5 4.5 0 0 0 8 9z" />
                             </svg>
-                            Perfil
+                            inicio
                         </a>
                     </li>
                     <li class="nav-item">
