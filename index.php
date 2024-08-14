@@ -6,7 +6,7 @@ include('includes/header.php');
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeInDown">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="../img/logo.png">
             <img class="logo-small" src="./img/logo.png" alt="Logo da Modern Muse">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,119 +23,171 @@ include('includes/header.php');
                     </a>
                 </li>
 
-                <li class="nav-item me-3">
+                <style>
+                    .logo-small {
+                        width: 50px;
+                        /* Defina a largura desejada */
+                        height: auto;
+                        /* Mantém a proporção da imagem */
+                    }
+
+
+                    /* Estilização básica do dropdown */
+                    .dropdown {
+                        position: relative;
+                        display: inline-block;
+                    }
+
+                    .dropbtn {
+                        background-color: #f1f1f100;
+                        color: white;
+                        font-size: 15px;
+                        border: none;
+                        cursor: pointer;
+                    }
+
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: #f9f9f9;
+                        min-width: 16000px;
+                        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                        z-index: 1;
+                    }
+
+                    .dropdown-content a {
+                        color: black;
+                        padding: 12px 2px;
+                        text-decoration: none;
+                        display: block;
+                    }
+
+                    .dropdown-content a:hover {
+                        background-color: #f1f1f1
+                    }
+
+                    .show {
+                        display: block;
+                    }
+
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: #f9f9f9;
+                        min-width: 160px;
+                        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                        z-index: 1;
+                        border-radius: 8px;
+                        padding: 12px 16px;
+                    }
+
+                    .dropdown-content a {
+                        color: black;
+                        padding: 8px 12px;
+                        text-decoration: none;
+                        display: block;
+                        border-radius: 4px;
+                    }
+
+                    .dropdown-content a:hover {
+                        background-color: #f1f1f1;
+                    }
+
+                    .show {
+                        display: block;
+                    }
+                </style>
+
+                </head>
+
+                <body>
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
                                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52z" />
                             </svg>
-                            Serviços
+                            <button onclick="toggleDropdown()" class="btn btn-light dropbtn">Serviços</button>
                         </a>
-                        <div class="dropdown-content">
+                        <div id="myDropdown" class="dropdown-content">
                             <a href="./catalogo/index.php">Masculino</a>
                             <a href="./catalogo/fem.php">Feminino</a>
                             <a href="./catalogo/inf.php">Infantil</a>
                         </div>
                     </div>
-                </li>
 
-                <li class="nav-item me-3">
-                    <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
-                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
-                        </svg>
-                        Contato
-                    </a>
-                </li>
+                    <script>
+                        function toggleDropdown() {
+                            var dropdown = document.getElementById("myDropdown");
+                            dropdown.classList.toggle("show");
+                        }
 
-                <li class="nav-item me-3">
-                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                        </svg>
-                    </a>
-                </li>
+                        // Fecha o dropdown se o usuário clicar fora dele
+                        window.onclick = function(event) {
+                            if (!event.target.matches('.dropbtn')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                for (var i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+                    </script>
 
-                <li class="nav-item">
-                    <?php if (!isset($_SESSION['name'])) { ?>
-                        <a class="nav-link" href="logim/index.php">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                    <!-- <li class="nav-item me-3">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
                             </svg>
-                            Logar
+                            Contato
                         </a>
-                    <?php } else { ?>
-                        <a class="nav-link" href="./perfis/perfil.php">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-                            </svg>
-                            Perfil
-                        </a>
-                    <?php } ?>
-                </li>
-            </ul>
+                    </li> -->
+
+                    </head>
+
+                    <body>
+                        <ul class="nav">
+                            <li class="nav-item me-3">
+                                <a class="nav-link" href="#" id="dropdownToggle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+                                    </svg>
+                                    Contato
+                                </a>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <!-- Adicione um link para a página de perfil -->
+                            <li class="nav-item">
+                                <?php
+                                if (!isset($_SESSION['name'])) { ?>
+                                    <a class="nav-link" href="logim/index.php">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                        </svg>
+                                        Logar
+                                    </a>
+                                <?php } else { ?>
+                                    <a class="nav-link" href="./perfis/perfil.php">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                        </svg>
+                                        Perfil
+                                    </a>
+                                <?php } ?>
+                            </li>
+                        </ul>
+
         </div>
     </div>
 </nav>
-
-<style>
-    .logo-small {
-        width: 50px;
-        height: auto; /* Mantém a proporção da imagem */
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        border-radius: 8px;
-        padding: 12px 16px;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 8px 12px;
-        text-decoration: none;
-        display: block;
-        border-radius: 4px;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-    }
-
-    .show {
-        display: block;
-    }
-</style>
-
-<script>
-    function toggleDropdown() {
-        var dropdown = document.querySelector(".dropdown-content");
-        dropdown.classList.toggle("show");
-    }
-
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropdown-toggle')) {
-            var dropdowns = document.querySelectorAll(".dropdown-content");
-            dropdowns.forEach(function(dropdown) {
-                if (dropdown.classList.contains('show')) {
-                    dropdown.classList.remove('show');
-                }
-            });
-        }
-    }
-</script>
-
 
 <section class="features-section py-5">
     <!-- HTML do modal para adicionar avaliação e comentário -->
